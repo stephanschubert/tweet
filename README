@@ -1,0 +1,17 @@
+Simple tweeting from your shell using curl.
+
+1. Install script
+
+$ cp tweet ~/bin/tweet
+$ chmod u+x ~/bin/tweet
+
+2. Create ~/.twitter with content
+
+$auth = [ "your twitter name", "your twitter password" ]
+
+3. Start tweeting
+
+$ tweet @stephanschubert rocks!
+
+
+Enjoy.

@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+# Simple tweeting from your favourite shell
+
+begin
+  load "~/.twitter"
+rescue LoadError
+  abort <<ERR
+No ~/.twitter found, please create one with these contents:
+ 
+  $auth = ["your twitter username", "your twitter password"]
+ 
+ERR
+end
+
+unless (text = ARGV.join(" ")) == ""
+  `curl -u #{$auth * ":"} -d status="#{text}" http://twitter.com/statuses/update.json`
+else
+  "Usage: tweet <your status update>"
+end
